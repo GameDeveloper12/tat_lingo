@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI; // Используем библиотеку UnityEngine.UI для управления интерфейсом (Текст, изображения и т.д).
 
 public class MenuScript : MonoBehaviour {
@@ -104,7 +105,7 @@ public class MenuScript : MonoBehaviour {
         }
         if (fadeImage.color == Color.black) // Если цвет картинки = чёрному, то:
         {
-            Application.LoadLevel(1); // Загрузить level 1 (Игра)
+            SceneManager.LoadScene(1); // Загрузить level 1 (Игра)
         }
     }
     public void OnClickStart() // Публичная функция (При нажатии на старт)

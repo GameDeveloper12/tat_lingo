@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using System.Runtime;
 
 class Question
@@ -462,21 +463,15 @@ public class GameScript : MonoBehaviour
 
     public void ContinueBttn() // Публичная функция (Кнопка продолжения)
     {
-        if (true/*lose == false*/) // Если lose = false, то:
-        {
-            goFadeOut = false; // (Делать переход (из черноты) при загруженом уровне если = true).
-            goFadeIn = true; // (Делать переход в черноту при загрузке уровня если = true).
-        }
-        else // Иначе (Если мы проиграли)
-        {
-            Application.LoadLevel(0); // Загружаем 0 level (Меню).
-        }
+        goFadeOut = false; // (Делать переход (из черноты) при загруженом уровне если = true).
+        goFadeIn = true; // (Делать переход в черноту при загрузке уровня если = true).
     }
+
     private void continueLoad() // Приватная функция (Продолжить загрузку)
     {
         if (ended == true) // Если прошли полностью игру, то:
         {
-            Application.LoadLevel(0); // Загружаем 0 level (Меню).
+            SceneManager.LoadScene(0); // Загружаем 0 level (Меню).
             PlayerPrefs.SetString("Ended?", "Ended"); // Сохраняем строку Ended.
             PlayerPrefs.Save(); // Сохранить изменения в сохранениях.
         }
@@ -486,7 +481,7 @@ public class GameScript : MonoBehaviour
             isLoaded = true; // (Если уровень загружен, то равно true.)
             PlayerPrefs.SetInt("wQ", wQ); // Сохраняем число с нумерацией вопроса.
             PlayerPrefs.Save(); // Сохранить изменения в сохранениях.
-            Application.LoadLevel(1); // Загрузить 1 level (Перезапускаем уровень с игрой для нового вопроса).
+            SceneManager.LoadScene(1); // Загрузить 1 level (Перезапускаем уровень с игрой для нового вопроса).
         }
     }
     public void selectedBttn(int clickBttn) // Публичная функция (Нажатая кнопка)
@@ -495,7 +490,7 @@ public class GameScript : MonoBehaviour
     }
     public void OnClickMenu() // Публичная функция (При нажатии на кнопку в меню)
     {
-        Application.LoadLevel(0); // Загрузить 0 level (Меню)
+        SceneManager.LoadScene(0); // Загрузить 0 level (Меню)
     }
     public void OnClickExit() // Публичная функция (При нажатии на выход)
     {
