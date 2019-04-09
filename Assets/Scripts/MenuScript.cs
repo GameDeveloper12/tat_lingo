@@ -1,9 +1,4 @@
-﻿// MenuScript for Open Source Game by Android Helper Games
-// v.1.0
-// Если увидите ошибки, то поймите меня, я писал быстро)
-// Скрипт на 5 % оптимизирован, так что могут быть баги и т.д.
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI; // Используем библиотеку UnityEngine.UI для управления интерфейсом (Текст, изображения и т.д).
 
